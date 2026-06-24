@@ -1,18 +1,22 @@
 const config = {
-  herName: "[Her Name]",
-  yourName: "[Your Name]",
+  herName: "Madhu",
+  yourName: "Suman",
   date: "June 24, 2026",
   photos: {
     photo1: {
-      src: "images/couple1.jpg",
-      caption: "Our favorite moment",
+      src: "madhuu.jpeg",
+      caption: "You",
       alt: "A couple sharing a sweet moment together",
     },
     photo2: {
-      src: "images/couple2.jpg",
-      caption: "Always better together",
+      src: "myyyy.jpeg",
+      caption: "Me",
       alt: "A couple laughing and enjoying time together",
     },
+  },
+  loveGif: {
+    src: "nono.gif",
+    alt: "A cute love animation",
   },
 };
 
@@ -54,6 +58,12 @@ function applyConfig() {
       imgEl.alt = photo.alt;
     }
   });
+
+  const loveGif = document.getElementById("loveGif");
+  if (loveGif && config.loveGif) {
+    loveGif.src = config.loveGif.src;
+    loveGif.alt = config.loveGif.alt;
+  }
 }
 
 function createPetals() {
