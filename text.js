@@ -18,6 +18,11 @@ const config = {
     src: "nono.gif",
     alt: "A cute love animation",
   },
+  song: {
+    src: "Stay With Me - Instrumental_spotdown.org.mp3",
+    volume: 0.6,
+    loop: true,
+  },
 };
 
 function isMobile() {
@@ -40,6 +45,13 @@ function applyConfig() {
       el.textContent = config.yourName;
     }
   });
+
+  const bgMusic = document.getElementById("bgMusic");
+  if (bgMusic && config.song?.src) {
+    bgMusic.src = config.song.src;
+    bgMusic.volume = config.song.volume ?? 0.6;
+    bgMusic.loop = config.song.loop ?? true;
+  }
 
   const dateEl = document.querySelector(".letter-date");
   if (dateEl) {
@@ -146,8 +158,18 @@ function moveNoButton(event) {
 
   hint.classList.remove("hidden");
 }
+function playSong() {
+  const audio = document.getElementById("bgMusic");
+  if (!audio?.src) return;
+
+  audio.volume = config.song?.volume ?? 0.6;
+  audio.loop = config.song?.loop ?? true;
+  audio.play().catch(() => {});
+}
 
 function openLoveQuestion() {
+  playSong();
+
   const hero = document.getElementById("hero");
   const loveQuestion = document.getElementById("loveQuestion");
 

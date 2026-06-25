@@ -21,6 +21,9 @@
   --shadow: rgba(244, 63, 94, 0.12);
   --shadow-deep: rgba(74, 44, 58, 0.15);
 }
+.hidden {
+  display: none !important;
+}
 
 html {
   scroll-behavior: smooth;
@@ -668,8 +671,14 @@ main {
   padding: 0.35rem;
 }
 
+
 /* Mobile */
 @media (max-width: 600px) {
+  .feedback {
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInLine 0.8s ease 1.8s forwards;
+}
   .love-question-gif {
     width: min(100%, 160px);
     max-height: 160px;
